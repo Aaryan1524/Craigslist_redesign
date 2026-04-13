@@ -1,0 +1,16 @@
+
+/* --- Additional styles for search block --- */
+.search-header-white {
+    background-color: var(--white);
+    padding: 2rem 3rem 0 3rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.desktop-search-box {
+    border: 1px solid #d4d4d4 !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
+}
+
+.search-page-container {
+    padding-top: 2rem !important;
+}

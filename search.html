@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craigslist - Laptops Search</title>
+    <meta name="description" content="Search results for laptops">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles_new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" style="color:white; text-decoration:none;"><i class="fa-solid fa-peace" style="margin-right:2px; font-size: 1.25rem;"></i>Craigslist</a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="icon-link" aria-label="Favorites"><i class="fa-solid fa-heart"></i></a>
+            <a href="messages.html" class="icon-link" aria-label="Messages"><i class="fa-solid fa-message"></i></a>
+            <a href="#" class="icon-link" aria-label="User Profile"><i class="fa-solid fa-user"></i></a>
+            <a href="#" class="btn btn-white">Post</a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- NEW: Dedicated Search Header in White Space -->
+    <div class="search-header-white">
+        <div class="search-container" style="max-width: 1000px; margin: 0 auto;">
+            <div class="search-input-wrapper desktop-search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" value="laptop" placeholder="Search for anything...">
+            </div>
+            <button class="btn btn-purple">Search</button>
+        </div>
+    </div>
+
+    <div class="search-page-container">
+        <!-- Sidebar Filters -->
+        <aside class="filters-sidebar">
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Filters</h3>
+            
+            <div class="filter-group">
+                <h4>Price</h4>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <input type="text" placeholder="Min" class="filter-input">
+                    <span>-</span>
+                    <input type="text" placeholder="Max" class="filter-input">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Condition</h4>
+                <select class="filter-input">
+                    <option>All conditions</option>
+                    <option>New</option>
+                    <option>Like New</option>
+                    <option>Good</option>
+                    <option>Fair</option>
+                    <option>For Parts</option>
+                </select>
+            </div>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 1.5rem 0;">
+            <h4 style="margin-bottom: 1rem; color: #666; font-size: 0.9rem; text-transform: uppercase;">Laptop Specs</h4>
+
+            <div class="filter-group">
+                <h4>Brand / Maker</h4>
+                <select class="filter-input">
+                    <option>All Brands</option>
+                    <option>Apple</option>
+                    <option>Dell</option>
+                    <option>Lenovo</option>
+                    <option>HP</option>
+                    <option>ASUS</option>
+                    <option>Acer</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <h4>RAM / Memory</h4>
+                <select class="filter-input">
+                    <option>Any</option>
+                    <option>8 GB</option>
+                    <option>16 GB</option>
+                    <option>32 GB</option>
+                    <option>64 GB +</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <h4>Storage Capacity</h4>
+                <select class="filter-input">
+                    <option>Any</option>
+                    <option>256 GB</option>
+                    <option>512 GB</option>
+                    <option>1 TB</option>
+                    <option>2 TB +</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <h4>Processor (CPU)</h4>
+                <select class="filter-input">
+                    <option>Any</option>
+                    <option>Apple M1/M2/M3</option>
+                    <option>Intel Core i9</option>
+                    <option>Intel Core i7</option>
+                    <option>Intel Core i5</option>
+                    <option>AMD Ryzen 9</option>
+                    <option>AMD Ryzen 7</option>
+                </select>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 1.5rem 0;">
+
+            <div class="filter-group">
+                <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; cursor: pointer;">
+                    <input type="checkbox"> Show only Verified Sellers
+                </label>
+            </div>
+            
+            <button class="btn btn-purple" style="width: 100%; margin-top: 1rem;">Apply Filters</button>
+        </aside>
+
+        <!-- Results Catalog -->
+        <main class="results-container">
+            <h2>Laptops near Miami, FL</h2>
+            <div style="margin-bottom: 1rem; color: #666; font-size: 0.9rem;">Showing 1 - 24 of 1,200 results</div>
+            
+            <div class="results-grid">
+                <!-- Verified Result -->
+                <div class="result-card" onclick="window.location.href='details.html'">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-image" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>MacBook Pro M2 16GB</h3>
+                        <div class="card-price">$1,100</div>
+                        <div class="card-meta">
+                            <span class="location">Downtown Miami</span> • <span class="time">2 hr ago</span>
+                        </div>
+                        <div class="badge verified"><i class="fa-solid fa-circle-check"></i> Verified</div>
+                    </div>
+                </div>
+
+                <!-- Unverified Result -->
+                <div class="result-card">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-image" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Dell XPS 13 i7 1TB</h3>
+                        <div class="card-price">$850</div>
+                        <div class="card-meta">
+                            <span class="location">Coral Gables</span> • <span class="time">5 hr ago</span>
+                        </div>
+                        <div class="badge unverified"><i class="fa-solid fa-circle-exclamation"></i> Not Verified</div>
+                    </div>
+                </div>
+
+                <!-- Verified Result -->
+                <div class="result-card">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-image" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Lenovo ThinkPad X1 Carbon</h3>
+                        <div class="card-price">$1,350</div>
+                        <div class="card-meta">
+                            <span class="location">Miami Beach</span> • <span class="time">1 day ago</span>
+                        </div>
+                        <div class="badge verified"><i class="fa-solid fa-circle-check"></i> Verified</div>
+                    </div>
+                </div>
+
+                <!-- Unverified Result -->
+                <div class="result-card">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-image" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>MacBook Air M1 Base Model</h3>
+                        <div class="card-price">$650</div>
+                        <div class="card-meta">
+                            <span class="location">Hialeah</span> • <span class="time">2 days ago</span>
+                        </div>
+                        <div class="badge unverified"><i class="fa-solid fa-circle-exclamation"></i> Not Verified</div>
+                    </div>
+                </div>
+
+                 <!-- Verified Result -->
+                 <div class="result-card">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-image" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>ASUS ROG Zephyrus G14</h3>
+                        <div class="card-price">$1,200</div>
+                        <div class="card-meta">
+                            <span class="location">Aventura</span> • <span class="time">Just now</span>
+                        </div>
+                        <div class="badge verified"><i class="fa-solid fa-circle-check"></i> Verified</div>
+                    </div>
+                </div>
+
+                 <!-- Verified Result -->
+                 <div class="result-card">
+                    <div class="card-image-placeholder">
+                        <i class="fa-solid fa-image" style="font-size: 2rem;"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>HP Envy 15t Touch</h3>
+                        <div class="card-price">$700</div>
+                        <div class="card-meta">
+                            <span class="location">Brickell</span> • <span class="time">3 hr ago</span>
+                        </div>
+                        <div class="badge verified"><i class="fa-solid fa-circle-check"></i> Verified</div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

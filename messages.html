@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craigslist - Messages</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles_messages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" style="color:white; text-decoration:none;"><i class="fa-solid fa-peace"
+                    style="margin-right:2px; font-size: 1.25rem;"></i>Craigslist</a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="icon-link" aria-label="Favorites"><i class="fa-solid fa-heart"></i></a>
+            <a href="messages.html" class="icon-link" aria-label="Messages"><i class="fa-solid fa-message"></i></a>
+            <a href="#" class="icon-link" aria-label="User Profile"><i class="fa-solid fa-user"></i></a>
+            <a href="#" class="btn btn-white">Post</a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="messages-layout">
+        <!-- Sidebar -->
+        <aside class="inbox-sidebar">
+            <div class="inbox-header">
+                <a href="index.html" aria-label="Go Back"><i class="fa-solid fa-chevron-left"
+                        style="color:var(--purple); font-size:1.2rem;"></i></a>
+                <h2>Messages</h2>
+            </div>
+
+            <div class="inbox-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search Conversation">
+            </div>
+
+            <div class="inbox-list">
+
+                <div class="inbox-item" id="arturo-chat" onclick="openChat()">
+                    <div class="avatar-placeholder"></div>
+                    <div class="inbox-item-content">
+                        <h4>Arturo <i class="fa-solid fa-circle-check" style="color: #0c8c36; font-size:0.8rem"></i>
+                            <span style="font-weight:400; font-size:0.95rem;">| Apple Macbook pro 13"</span>
+                        </h4>
+                        <p>You: Sure! See you there</p>
+                    </div>
+                </div>
+
+                <div class="inbox-item">
+                    <div class="avatar-placeholder"></div>
+                    <div class="inbox-item-content">
+                        <h4>Mike <i class="fa-solid fa-circle-check" style="color: #0c8c36; font-size:0.8rem"></i> <span
+                                style="font-weight:400; font-size:0.95rem;">| Dell XPS 15 Laptop</span></h4>
+                        <p>You: Is the charger included in the price?</p>
+                    </div>
+                </div>
+
+                <div class="inbox-item">
+                    <div class="avatar-placeholder"></div>
+                    <div class="inbox-item-content">
+                        <h4>Anna <i class="fa-solid fa-circle-check" style="color: #0c8c36; font-size:0.8rem"></i> <span
+                                style="font-weight:400; font-size:0.95rem;">| Vintage Oak Dining...</span></h4>
+                        <p>Anna: Yes, you can come pick it up tomorro...</p>
+                    </div>
+                </div>
+
+                <div class="inbox-item">
+                    <div class="avatar-placeholder"></div>
+                    <div class="inbox-item-content">
+                        <h4>Carlos <i class="fa-solid fa-circle-exclamation"
+                                style="color: #e5291b; font-size:0.8rem"></i> <span
+                                style="font-weight:400; font-size:0.95rem;">| Head Extreme Pro...</span></h4>
+                        <p>You: Would you take $120 if I pick it up today?</p>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- Right Section: Empty State -->
+        <main class="chat-main" id="chat-placeholder">
+            <div class="empty-state">
+                <i class="fa-solid fa-comment-dots"></i>
+                <h3>Select a Conversation</h3>
+                <p>choose a conversation from your inbox</p>
+            </div>
+        </main>
+
+        <!-- Right Section: Active Chat -->
+        <main class="chat-main hidden" id="chat-active">
+            <div class="chat-history">
+
+                <div class="message-row me">
+                    <div class="msg-bubble">Hi!</div>
+                    <div class="msg-tail"></div>
+                </div>
+
+                <div class="message-row me">
+                    <div class="msg-bubble" style="border-radius: 6px;">Is laptop still available?</div>
+                    <div class="msg-tail"></div>
+                </div>
+
+                <div class="message-row them mt-4">
+                    <div class="msg-tail"></div>
+                    <div class="msg-bubble">Hey There!</div>
+                </div>
+
+                <div class="message-row them">
+                    <div class="msg-tail"></div>
+                    <div class="msg-bubble">Yes! Would you like to buy?</div>
+                </div>
+
+                <div class="message-row me mt-4">
+                    <div class="msg-bubble">I'm very interested! When I can see in person?</div>
+                    <div class="msg-tail"></div>
+                </div>
+
+                <div class="message-row them mt-4">
+                    <div class="msg-tail"></div>
+                    <div class="msg-bubble">I finish work at 5:30 PM, I work near Office Max<br>Plaza. Would you like to
+                        meet up there?</div>
+                </div>
+
+                <div class="message-row me mt-4">
+                    <div class="msg-bubble">Sure! See you there</div>
+                    <div class="msg-tail"></div>
+                </div>
+
+            </div>
+
+            <div class="chat-input-area">
+                <textarea placeholder="Type your message..."></textarea>
+                <button class="btn btn-purple">Send</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function openChat() {
+            // Toggle visibility
+            document.getElementById('chat-placeholder').classList.add('hidden');
+            document.getElementById('chat-active').classList.remove('hidden');
+
+            // Mark conversation as selected
+            document.querySelectorAll('.inbox-item').forEach(el => el.classList.remove('active'));
+            document.getElementById('arturo-chat').classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

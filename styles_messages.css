@@ -1,0 +1,248 @@
+/* Messages Layout */
+.messages-layout {
+    display: flex;
+    height: calc(100vh - 70px); /* Fill rest of screen */
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.inbox-sidebar {
+    width: 380px;
+    border-right: 1px solid #eaeaea;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.inbox-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.inbox-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.inbox-search {
+    margin: 0 1.5rem 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    padding: 0.5rem 0.8rem;
+}
+
+.inbox-search i {
+    color: #888;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.inbox-search input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.inbox-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.inbox-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f4f4f4;
+    transition: background-color 0.1s;
+}
+
+.inbox-item:hover {
+    background-color: #fcfcfc;
+}
+
+.inbox-item.active {
+    background-color: var(--purple);
+    color: white;
+}
+
+.inbox-item.active p {
+    color: #edcbed;
+}
+
+.inbox-item.active .inbox-item-content h4 span {
+    color: #fff !important;
+}
+
+.avatar-placeholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+    flex-shrink: 0;
+}
+
+.inbox-item-content {
+    overflow: hidden;
+}
+
+.inbox-item-content h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.inbox-item-content p {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Chat Main Area */
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.chat-main.hidden {
+    display: none;
+}
+
+/* Empty State */
+.empty-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+}
+
+.empty-state i {
+    font-size: 5rem;
+    color: var(--purple);
+    margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.empty-state p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Active Chat */
+.chat-history {
+    flex: 1;
+    padding: 2rem 3rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.message-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    max-width: 80%;
+}
+
+.message-row.me {
+    align-self: flex-end;
+}
+
+.message-row.them {
+    align-self: flex-start;
+}
+
+.msg-bubble {
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.me .msg-bubble {
+    background-color: var(--purple);
+    color: white;
+}
+
+.them .msg-bubble {
+    background-color: #e8e8e8;
+    color: #111;
+}
+
+.msg-tail {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.me .msg-tail {
+    background-color: var(--purple);
+}
+
+.them .msg-tail {
+    background-color: #e8e8e8;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+/* Input Area */
+.chat-input-area {
+    padding: 1.5rem 3rem;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #fff;
+}
+
+.chat-input-area textarea {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+    height: 80px;
+    resize: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.chat-input-area textarea:focus {
+    border-color: var(--purple);
+}
+
+.chat-input-area button {
+    padding: 0.8rem 2.5rem;
+    height: fit-content;
+}

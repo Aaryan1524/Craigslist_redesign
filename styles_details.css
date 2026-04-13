@@ -1,0 +1,212 @@
+.details-page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem 3rem 4rem 3rem;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    font-size: 0.95rem;
+    color: #ae48ac;
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumbs a {
+    color: #ae48ac;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Gallery Horizontal Layout */
+.gallery-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.gallery-scroll {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem; /* For scrollbar */
+}
+
+/* Hide scrollbar visually but keep functionally in some designs, or style it */
+.gallery-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.gallery-placeholder {
+    flex: 0 0 450px;
+    height: 350px;
+    background-color: #d9d9d9;
+}
+
+/* Listing Header */
+.listing-header {
+    margin-bottom: 2.5rem;
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.title-row h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.meta-right {
+    font-size: 0.95rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.4rem;
+}
+
+.meta-right .location {
+    text-decoration: underline;
+    color: #444;
+}
+
+.meta-right .divider {
+    color: #ccc;
+}
+
+.meta-right .posted-time {
+    color: #888;
+}
+
+.price-seller-row {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    gap: 0.6rem;
+}
+
+.detail-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.divider-vertical {
+    display: inline-block;
+    width: 1px;
+    height: 1.2rem;
+    background-color: #ccc;
+    margin: 0 0.2rem;
+}
+
+.seller-name {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #111;
+}
+
+.seller-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #111;
+    font-size: 1rem;
+}
+
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 5rem;
+}
+
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+/* Specs List */
+.specs-list {
+    list-style: none;
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.specs-list li {
+    margin-bottom: 0.2rem;
+}
+
+.specs-list strong {
+    color: #111;
+    font-weight: 700;
+}
+
+/* Actions */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.btn-large {
+    padding: 0.6rem 2.5rem;
+    font-size: 0.95rem;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--purple);
+    border: 1px solid #d4a9d7;
+    padding: 0.6rem 2rem;
+    border-radius: 6px;
+}
+
+.btn-outline:hover {
+    background-color: #fcf4fd;
+    border-color: var(--purple);
+}
+
+/* Description */
+.description-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .gallery-placeholder {
+        flex: 0 0 300px;
+        height: 250px;
+    }
+    
+    .details-page-container {
+        padding: 1.5rem;
+    }
+}

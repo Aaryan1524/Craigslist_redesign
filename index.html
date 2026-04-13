@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craigslist Redesign</title>
+    <meta name="description" content="A modern redesign for Craigslist">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles_home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-peace" style="margin-right:2px; font-size: 1.25rem;"></i>Craigslist
+        </div>
+        <div class="nav-right">
+            <a href="#" class="icon-link" aria-label="Favorites"><i class="fa-solid fa-heart"></i></a>
+            <a href="messages.html" class="icon-link" aria-label="Messages"><i class="fa-solid fa-message"></i></a>
+            <a href="#" class="icon-link" aria-label="User Profile"><i class="fa-solid fa-user"></i></a>
+            <a href="#" class="btn btn-white">Post</a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Find what you need<br>in <a href="#" class="location-link">Miami, FL <i class="fa-solid fa-chevron-down"
+                        style="font-size: 0.7em;"></i></a></h1>
+
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Type what you looking for today....">
+                </div>
+                <button class="btn btn-purple" onclick="window.location.href='search.html'">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="categories-section">
+        <h2>Search by category</h2>
+        <div id="dynamic-categories"></div>
+    </main>
+
+    <!-- Subcategories Data & Logic -->
+    <script>
+        const categories = [
+            { id: 'community', name: 'Community', sub: ['Activities', 'Artists', 'Childcare', 'Classes', 'Events', 'General', 'Groups', 'Local news', 'Lost & Found', 'Missed', 'Musicians', 'Pets', 'Politics', 'Rants & Raves', 'Rideshare'] },
+            { id: 'housing', name: 'Housing', sub: ['Apartments', 'Commercial', 'Housing Swap', 'Housing Wanted', 'Office / Commercial', 'Parking / Storage', 'Real Estate', 'Rooms / Shared', 'Sublets / Temporary', 'Vacation Rentals'] },
+            { id: 'services', name: 'Services', sub: ['Automotive', 'Beauty', 'Cell / Mobile', 'Computer', 'Creative', 'Cycle', 'Event', 'Farm & Garden', 'Financial', 'Health/Wellness', 'Household', 'Labor / Move', 'Legal', 'Lessons', 'Marine', 'Pet', 'Real Estate', 'Skilled Trade', 'Sm Biz Ads', 'Travel/Vac'] },
+            { id: 'forsale', name: 'For Sale', sub: ['Antiques', 'Appliances', 'Arts & Crafts', 'Atvs/Utvs/Snow', 'Auto Parts', 'Aviation', 'Baby & Kid', 'Barter', 'Beauty & Hlth', 'Bike Parts', 'Bikes', 'Boats', 'Books', 'Business', 'Cars & Trucks', 'Cds/Dvd/Vhs'] },
+            { id: 'jobs', name: 'Jobs', sub: ['Accounting', 'Admin / Office', 'Arch / Engineering', 'Art / Media / Design', 'Biotech / Science', 'Business / Mgmt', 'Customer Service', 'Education', 'Etc / Misc', 'Food / Bev / Hosp', 'General Labor', 'Government', 'Human Resources', 'Legal / Paralegal', 'Manufacturing', 'Marketing', 'Medical', 'Nonprofit', 'Real Estate', 'Retail / Wholesale', 'Sales', 'Salon / Spa / Fitness', 'Security', 'Skilled Trade', 'Software / qa / dba', 'Systems / Network', 'Technical Support', 'Transport', 'Tv / Film / Video', 'Web / Info Design', 'Writing / Editing'] },
+            { id: 'resume', name: 'Resume', sub: ['Browse Resumes', 'Post Resume'] },
+            { id: 'discussion', name: 'Discussion Forum', sub: ['Apple', 'Arts', 'Atheist', 'Autos', 'Beauty', 'Bikes', 'Celebs', 'Comp', 'Cosplay', 'Diet', 'Divorce', 'Dying', 'Eco', 'Feedbk'] },
+            { id: 'gigs', name: 'Gigs', sub: ['Computer', 'Creative', 'Crew', 'Domestic', 'Event', 'Labor', 'Talent', 'Writing'] }
+        ];
+        
+        const container = document.getElementById('dynamic-categories');
+        container.className = 'categories-grid';
+        
+        let activeCat = 'community';
+        
+        function renderCategories() {
+            container.innerHTML = '';
+            
+            for(let i=0; i<categories.length; i++) {
+                const cat = categories[i];
+                
+                const btn = document.createElement('a');
+                btn.href = '#';
+                btn.className = 'category-card' + (activeCat === cat.id ? ' active-cat' : '');
+                btn.innerText = cat.name;
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    activeCat = activeCat === cat.id ? null : cat.id; // Toggle
+                    renderCategories();
+                };
+                container.appendChild(btn);
+                
+                // Determine row boundaries (4 items per row max for our 4-col grid)
+                const isEndOfRow = (i % 4 === 3);
+                const isLastItem = (i === categories.length - 1);
+                
+                if (isEndOfRow || isLastItem) {
+                    const rowStartIndex = Math.floor(i / 4) * 4;
+                    const rowCategories = categories.slice(rowStartIndex, Math.min(i + 1, categories.length));
+                    const activeInRow = rowCategories.find(c => c.id === activeCat);
+                    
+                    if (activeInRow) {
+                        const panel = document.createElement('div');
+                        panel.className = 'subcategory-panel';
+                        panel.innerHTML = activeInRow.sub.map(s => `<a href="#" class="sub-link" onclick="window.location.href='search.html'">${s}</a>`).join('');
+                        container.appendChild(panel);
+                    }
+                }
+            }
+        }
+        
+        // Initial render
+        renderCategories();
+    </script>
+
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craigslist - Apple Macbook pro 13"</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles_details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles_modal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html" style="color:white; text-decoration:none;"><i class="fa-solid fa-peace"
+                    style="margin-right:2px; font-size: 1.25rem;"></i>Craigslist</a>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="icon-link" aria-label="Favorites"><i class="fa-solid fa-heart"></i></a>
+            <a href="messages.html" class="icon-link" aria-label="Messages"><i class="fa-solid fa-message"></i></a>
+            <a href="#" class="icon-link" aria-label="User Profile"><i class="fa-solid fa-user"></i></a>
+            <a href="#" class="btn btn-white">Post</a>
+            <div class="lang-selector">
+                EN <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="details-page-container">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> &gt; <a href="#">For Sale</a> &gt; <a href="search.html">Laptops</a>
+        </div>
+
+        <!-- Image Gallery (Horizontal Scroll) -->
+        <div class="gallery-container">
+            <div class="gallery-scroll">
+                <div class="gallery-placeholder"></div>
+                <div class="gallery-placeholder"></div>
+                <div class="gallery-placeholder"></div>
+                <div class="gallery-placeholder"></div>
+            </div>
+        </div>
+
+        <!-- Header Info Area -->
+        <div class="listing-header">
+            <div class="title-row">
+                <h1>Apple Macbook pro 13”</h1>
+                <div class="meta-right">
+                    <span class="location"><i class="fa-solid fa-location-dot" style="color: var(--purple);"></i>
+                        Hallandale Beach</span>
+                    <span class="divider">|</span>
+                    <span class="posted-time">posted 2 weeks ago</span>
+                </div>
+            </div>
+
+            <div class="price-seller-row">
+                <span class="detail-price">$1,100</span>
+                <span class="divider-vertical"></span>
+                <span class="seller-name">Arturo Coello <i class="fa-solid fa-circle-check"
+                        style="color: #0c8c36;"></i></span>
+                <span class="seller-rating"><i class="fa-solid fa-star" style="color: var(--purple);"></i> 4.8</span>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Left Column: Specs -->
+            <div class="specs-column">
+                <h3 class="section-title">Item details:</h3>
+                <ul class="specs-list">
+                    <li><strong>Screen size:</strong> 13 inch</li>
+                    <li><strong>RAM Size:</strong> 16 GB</li>
+                    <li><strong>GPU:</strong> 14-Core</li>
+                    <li><strong>Keyboard type:</strong> QWERTY - English</li>
+                    <li><strong>Charger Compatibility:</strong> MagSafe 3, USB Type-C</li>
+                    <li><strong>Storage:</strong> 512 GB</li>
+                    <li><strong>Touch ID:</strong> Yes</li>
+                </ul>
+
+                <div class="action-buttons">
+                    <button class="btn btn-purple btn-large">Contact Seller</button>
+                    <button class="btn btn-outline" onclick="openReportModal()">Report</button>
+                </div>
+            </div>
+
+            <!-- Right Column: Description -->
+            <div class="description-column">
+                <h3 class="section-title">Item Description:</h3>
+                <div class="description-text">
+                    <p>This is my Macbook. I've recently upgraded to a newer model, so I'm selling the previous, works
+                        like new, looking for someone that will take good care. This laptop and I shared great moments.
+                    </p>
+                    <br>
+                    <p>If interested please call on the phone. I don't text and don't check my email.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Modal Overlay -->
+    <div id="reportModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Report this Listing</h3>
+                <i class="fa-solid fa-xmark close-icon" onclick="closeReportModal()"></i>
+            </div>
+            <div class="modal-body">
+                <p>Please tell us what is wrong with this listing:</p>
+                <select class="report-select">
+                    <option>Spam or misleading</option>
+                    <option>Fraudulent activity</option>
+                    <option>Prohibited item</option>
+                    <option>Inappropriate content</option>
+                    <option>Other</option>
+                </select>
+                <textarea class="report-textarea" placeholder="Provide more details (optional)..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeReportModal()">Cancel</button>
+                <button class="btn btn-purple" onclick="submitReport()">Submit Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openReportModal() {
+            document.getElementById('reportModal').classList.remove('hidden');
+        }
+        function closeReportModal() {
+            document.getElementById('reportModal').classList.add('hidden');
+        }
+        function submitReport() {
+            alert('Your report has been submitted to trust & safety. Thank you!');
+            closeReportModal();
+        }
+    </script>
+</body>
+
+</html>
